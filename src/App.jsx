@@ -135,7 +135,9 @@ function App() {
             <a href="https://btgofficial.org" target="_blank" rel="noreferrer" className="cta-primary">
               Visit Official Site
             </a>
-            <a href="#" className="cta-secondary">Get Involved</a>
+            <a href="https://github.com/BTCGPU/BTCGPU/releases/tag/v0.21.3-beta" target="_blank" rel="noreferrer" className="cta-secondary">
+              Download Beta Wallet v0.21.3
+            </a>
           </div>
         </div>
       </section>
