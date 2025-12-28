@@ -56,7 +56,7 @@ function App() {
       {/* Hero Section */}
       <section className="hero">
         <div className="hero-content">
-          <img src={btgLogo} alt="Bitcoin Gold Logo" className="hero-logo" />
+          <img src={BTG_LOGO_URL} alt="Bitcoin Gold Logo" className="hero-logo" />
           <h1 className="hero-title">Welcome to BitcoinGold.Services</h1>
           <p className="hero-subtitle">
             An unofficial, community-driven support site for the Bitcoin Gold project (BTG)
