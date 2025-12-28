@@ -80,19 +80,36 @@ body {
   text-align: center;
   position: relative;
   overflow: hidden;
+  min-height: 700px;
+  display: flex;
+  align-items: center;
 }
 
 .hero::before {
   content: '';
   position: absolute;
-  top: -50%;
-  right: -10%;
+  top: 10%;
+  right: -5%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--btg-gold) 0%, transparent 70%);
+  opacity: 0.08;
+  border-radius: 50%;
+  animation: floatSlow 8s ease-in-out infinite;
+  z-index: 0;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -10%;
+  left: -5%;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, var(--btg-gold) 0%, transparent 70%);
-  opacity: 0.1;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.3) 0%, transparent 70%);
   border-radius: 50%;
-  animation: float 6s ease-in-out infinite;
+  animation: floatMedium 10s ease-in-out infinite;
+  z-index: 0;
 }
 
 .hero-content {
