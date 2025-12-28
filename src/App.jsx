@@ -1,6 +1,6 @@
 import './App.css'
 
-const BTG_LOGO_URL = 'https://cdn.builder.io/api/v1/image/assets%2F88f22d4a63384a518eca58d52971254b%2F97dde7416bf849bdb2cc62cb20225262?format=webp&width=800'
+const BTG_LOGO_URL = 'https://cdn.builder.io/api/v1/image/assets%2F88f22d4a63384a518eca58d52971254b%2Fc3fdd80a984e4fb4b47112be8a6517bc?format=webp&width=800'
 
 function App() {
   const goals = [
