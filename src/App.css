@@ -152,6 +152,13 @@ body {
   animation: fadeInUp 0.8s ease-out 0.3s both;
 }
 
+.hero-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 .cta-button {
   display: inline-block;
   padding: 1rem 2.5rem;
@@ -164,11 +171,27 @@ body {
   transition: var(--transition);
   animation: fadeInUp 0.8s ease-out 0.4s both;
   box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+  border: 2px solid transparent;
 }
 
 .cta-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+}
+
+.cta-button.community-btn {
+  animation: fadeInUp 0.8s ease-out 0.4s both, pulse-glow 2s ease-in-out infinite 1.2s;
+}
+
+.cta-button.secondary-btn {
+  background: transparent;
+  border: 2px solid var(--btg-gold);
+  animation: fadeInUp 0.8s ease-out 0.5s both;
+}
+
+.cta-button.secondary-btn:hover {
+  background: var(--btg-gold);
+  color: var(--btg-dark);
 }
 
 /* Mission Section */
