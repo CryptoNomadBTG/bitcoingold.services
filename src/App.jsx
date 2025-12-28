@@ -104,8 +104,8 @@ function App() {
           <p>
             When competing forks occur, nodes using CCBN assess both chain length and notarization Weight before accepting a fork — providing a robust defense against deep reorgs and secret mining attacks while maintaining standard Nakamoto Consensus (Proof-of-Work) as the baseline.
           </p>
-          <a href="https://btgofficial.org" target="_blank" rel="noreferrer" className="link-btn">
-            Learn more at btgofficial.org →
+          <a href="https://btgofficial.org/ccbn/" target="_blank" rel="noreferrer" className="link-btn">
+            Learn more at btgofficial.org/ccbn →
           </a>
         </div>
       </section>
