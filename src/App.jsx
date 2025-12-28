@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import './App.css'
 
-const BTG_LOGO_URL = 'https://cdn.builder.io/api/v1/image/assets%2F88f22d4a63384a518eca58d52971254b%2Fc3fdd80a984e4fb4b47112be8a6517bc?format=webp&width=800'
+const BTG_LOGO_URL = 'https://cdn.builder.io/api/v1/image/assets%2F88f22d4a63384a518eca58d52971254b%2Fd2594f0fa1e6437b8e186c46dc95b804?format=webp&width=800'
 
 function App() {
   // Initialize reCAPTCHA v3 for bot protection
