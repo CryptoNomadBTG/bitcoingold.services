@@ -531,18 +531,38 @@ body {
 .footer-content {
   max-width: 800px;
   margin: 0 auto;
+  animation: fadeInUp 0.8s ease-out;
 }
 
 .footer-content p {
   font-size: 1rem;
   line-height: 1.7;
   margin-bottom: 0.8rem;
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+.footer-content p:first-child {
+  animation-delay: 0.1s;
 }
 
 .footer-credit {
   color: var(--btg-gold);
   font-weight: 600;
   font-size: 1.05rem;
+  animation: fadeInUp 0.6s ease-out 0.2s both;
+  position: relative;
+  display: inline-block;
+}
+
+.footer-credit::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--btg-gold);
+  animation: expandWidth 0.8s ease-out 0.5s forwards;
 }
 
 /* Animations */
