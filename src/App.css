@@ -123,9 +123,13 @@ body {
   height: 8rem;
   width: 8rem;
   margin: 0 auto 2rem;
+  border-radius: 50%;
+  overflow: hidden;
+  object-fit: cover;
   animation: fadeInScale 0.8s ease-out, floatLogo 4s ease-in-out infinite 0.8s, glow-pulse 3s ease-in-out infinite 1.6s;
   filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.6));
   transition: filter 0.3s ease;
+  display: block;
 }
 
 .hero-title {
