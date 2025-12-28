@@ -1,8 +1,17 @@
+import { useEffect } from 'react'
 import './App.css'
 
 const BTG_LOGO_URL = 'https://cdn.builder.io/api/v1/image/assets%2F88f22d4a63384a518eca58d52971254b%2Fc3fdd80a984e4fb4b47112be8a6517bc?format=webp&width=800'
 
 function App() {
+  // Initialize reCAPTCHA v3 for bot protection
+  useEffect(() => {
+    if (window.grecaptcha) {
+      window.grecaptcha.ready(() => {
+        // reCAPTCHA is initialized and ready
+      })
+    }
+  }, [])
   const goals = [
     {
       icon: '🔹',
