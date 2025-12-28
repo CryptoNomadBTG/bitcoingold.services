@@ -582,6 +582,10 @@ body {
     width: 6rem;
   }
 
+  .hero-buttons {
+    gap: 1rem;
+  }
+
   .cta-button {
     padding: 0.9rem 2rem;
     font-size: 1rem;
