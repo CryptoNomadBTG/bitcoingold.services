@@ -48,7 +48,7 @@ function App() {
       {/* Navigation */}
       <nav className="navbar">
         <div className="nav-container">
-          <img src={btgLogo} alt="Bitcoin Gold" className="nav-logo" />
+          <img src={BTG_LOGO_URL} alt="Bitcoin Gold" className="nav-logo" />
           <div className="nav-brand">BitcoinGold.Services</div>
         </div>
       </nav>
