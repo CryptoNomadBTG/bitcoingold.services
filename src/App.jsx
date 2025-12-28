@@ -66,7 +66,12 @@ function App() {
           <p className="hero-description">
             Supporting the resilience, security, and growth of the Bitcoin Gold ecosystem by building critical infrastructure, testing new releases, and assisting both node operators and the official development team.
           </p>
-          <a href="#goals" className="cta-button">Explore Our Roadmap</a>
+          <div className="hero-buttons">
+            <a href="https://t.co/sgSWvTdZRb" target="_blank" rel="noreferrer" className="cta-button community-btn">
+              Join Our Community
+            </a>
+            <a href="#goals" className="cta-button secondary-btn">Explore Our Roadmap</a>
+          </div>
         </div>
       </section>
 
