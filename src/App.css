@@ -46,7 +46,18 @@ body {
   padding: 1rem 2rem;
   display: flex;
   align-items: center;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
   gap: 1rem;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.nav-link:hover {
+  opacity: 0.8;
 }
 
 .nav-logo {
