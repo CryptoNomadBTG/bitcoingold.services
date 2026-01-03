@@ -11,7 +11,7 @@
     
     <!-- SEO Meta Tags -->
     <title>BitcoinGold.Services - Community Support for Bitcoin Gold (BTG)</title>
-    <meta name="description" content="BitcoinGold.Services is an unofficial, community-driven support site for Bitcoin Gold (BTG). We build critical infrastructure, support DNS seeds, network monitoring, and ecosystem development." />
+    <meta name="description" content="BitcoinGold.Services is an unofficial, community-driven support site for Bitcoin Gold (BTG). We build critical infrastructure, support DNS seeds, network moni[...]" />
     <meta name="keywords" content="Bitcoin Gold, BTG, cryptocurrency, blockchain, DNS seed, CCBN, Cross-Chain Block Notarization, node operator, crypto infrastructure" />
     <meta name="author" content="BitcoinGold.Services Community" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -62,9 +62,26 @@
     
     <!-- reCAPTCHA v3 for bot protection -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <!-- Search CSS -->
+    <link rel="stylesheet" href="/css/search.css" />
   </head>
   <body>
+    <!-- Search bar injected at top of page (server-proxied fetch to btgexplorer) -->
+    <header class="site-header">
+      <div class="container">
+        <h1 class="brand">BitcoinGold Services</h1>
+        <form id="btg-search-form" class="btg-search" action="#" onsubmit="return false;">
+          <input id="btg-search-input" type="search" placeholder="Search address / tx / block on btgexplorer.com" aria-label="Search btgexplorer" />
+          <button id="btg-search-btn" type="submit">Search</button>
+        </form>
+      </div>
+    </header>
+
     <div id="root"></div>
+
+    <!-- Search frontend logic (calls server endpoint /api/btg-search) -->
+    <script src="/js/search.js"></script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
