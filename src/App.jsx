@@ -1,172 +1,327 @@
-import { useEffect } from 'react'
-import './App.css'
+import React, { useEffect, useRef, useState } from "react";
 
-const BTG_LOGO_URL = 'https://cdn.builder.io/api/v1/image/assets%2F88f22d4a63384a518eca58d52971254b%2Fb80d77d7db4e4be9b977b0a47455e071?format=webp&width=800'
-
-function App() {
-  // Initialize reCAPTCHA v3 for bot protection
+function useDebouncedValue(value, delay = 300) {
+  const [debounced, setDebounced] = useState(value);
   useEffect(() => {
-    if (window.grecaptcha) {
-      window.grecaptcha.ready(() => {
-        // reCAPTCHA is initialized and ready
-      })
-    }
-  }, [])
-  const goals = [
-    {
-      icon: '🔹',
-      title: 'DNS Seed Infrastructure (Beta v21.3)',
-      description: 'Implementing DNS seed servers for improved peer discovery and network connectivity for nodes across mainnet, testnet, and signet networks.'
-    },
-    {
-      icon: '🔹',
-      title: 'Network Monitoring & Reliability Tools',
-      description: 'Developing systems that track uptime, performance, connectivity, and consensus behavior across BTG nodes to identify issues early.'
-    },
-    {
-      icon: '🔹',
-      title: 'Supporting the Official Dev Team',
-      description: 'Actively contributing to Bitcoin Gold development, monitoring feedback loops, and supporting CCBN implementation for enhanced security.'
-    },
-    {
-      icon: '🔹',
-      title: 'Beta Version Final Release',
-      description: 'Participating in comprehensive beta testing cycles to ensure DNS seeds, monitoring, and CCBN integrations are stable before deployment.'
-    },
-    {
-      icon: '🔹',
-      title: 'Block Explorer Development',
-      description: 'Building a modern explorer with real-time data, searchable chain history, and node status visualization for ecosystem transparency.'
-    },
-    {
-      icon: '🔹',
-      title: 'BTG User Dashboard',
-      description: 'Developing a custom dashboard featuring node/pool metrics, wallet analytics, network health graphs, and custom alerts.'
-    }
-  ]
-
-  const initiatives = [
-    'Further network security enhancements',
-    'Community tooling libraries',
-    'Cross-chain services support',
-    'Educational resources and documentation'
-  ]
-
-  return (
-    <div className="landing-page">
-      {/* Navigation */}
-      <nav className="navbar">
-        <div className="nav-container">
-          <a href="https://btgofficial.org" target="_blank" rel="noreferrer" className="nav-link">
-            <img src={BTG_LOGO_URL} alt="Bitcoin Gold" className="nav-logo" />
-            <div className="nav-brand">BitcoinGold.Services</div>
-          </a>
-        </div>
-      </nav>
-
-      {/* Hero Section */}
-      <section className="hero">
-        <div className="hero-content">
-          <div className="hero-logo" role="img" aria-label="Bitcoin Gold Logo"></div>
-          <h1 className="hero-title">Welcome to BitcoinGold.Services</h1>
-          <p className="hero-subtitle">
-            An unofficial, community-driven support site for the Bitcoin Gold project (BTG)
-          </p>
-          <p className="hero-description">
-            Supporting the resilience, security, and growth of the Bitcoin Gold ecosystem by building critical infrastructure, testing new releases, and assisting both node operators and the official development team.
-          </p>
-          <div className="hero-buttons">
-            <a href="https://t.co/sgSWvTdZRb" target="_blank" rel="noreferrer" className="cta-button community-btn">
-              Join Our Community
-            </a>
-            <a href="#goals" className="cta-button secondary-btn">Explore Our Roadmap</a>
-          </div>
-        </div>
-      </section>
-
-      {/* Mission Section */}
-      <section className="mission">
-        <div className="mission-content">
-          <h2>Our Mission</h2>
-          <p>
-            BitcoinGold.Services is built by the community, for the community — with the purpose of strengthening Bitcoin Gold's infrastructure, security, and developer ecosystem. We welcome participation, feedback, and collaboration from anyone who wants to contribute to Bitcoin Gold's success.
-          </p>
-        </div>
-      </section>
-
-      {/* Goals & Roadmap */}
-      <section id="goals" className="goals">
-        <div className="goals-container">
-          <h2 className="section-title">Our Goals & Roadmap</h2>
-          <div className="goals-grid">
-            {goals.map((goal, index) => (
-              <div key={index} className="goal-card">
-                <div className="goal-icon">{goal.icon}</div>
-                <h3 className="goal-title">{goal.title}</h3>
-                <p className="goal-description">{goal.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CCBN Section */}
-      <section className="ccbn-section">
-        <div className="ccbn-content">
-          <h2>What is CCBN?</h2>
-          <p>
-            <strong>CCBN</strong> stands for <strong>Cross-Chain Block Notarization</strong>, a decentralized strategy where BTG block headers are notarized on other well-established public blockchains (called Notarychains). These notarizations include complete block headers with solution hashes that cannot be faked and accrue Weight based on their depth in the Notarychain.
-          </p>
-          <p>
-            When competing forks occur, nodes using CCBN assess both chain length and notarization Weight before accepting a fork — providing a robust defense against deep reorgs and secret mining attacks while maintaining standard Nakamoto Consensus (Proof-of-Work) as the baseline.
-          </p>
-          <a href="https://btgofficial.org/ccbn/" target="_blank" rel="noreferrer" className="link-btn">
-            Learn more at btgofficial.org/ccbn →
-          </a>
-        </div>
-      </section>
-
-      {/* Future Initiatives */}
-      <section className="initiatives">
-        <div className="initiatives-container">
-          <h2 className="section-title">Ongoing & Future Initiatives</h2>
-          <p className="initiatives-intro">Beyond the initial infrastructure, our long-term goals include:</p>
-          <div className="initiatives-list">
-            {initiatives.map((initiative, index) => (
-              <div key={index} className="initiative-item">
-                <span className="initiative-check">✓</span>
-                <span>{initiative}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="cta-section">
-        <div className="cta-container">
-          <h2>Ready to Contribute?</h2>
-          <p>Join the Bitcoin Gold community and help us strengthen the ecosystem</p>
-          <div className="cta-buttons">
-            <a href="https://btgofficial.org" target="_blank" rel="noreferrer" className="cta-primary">
-              Visit Official Site
-            </a>
-            <a href="https://github.com/BTCGPU/BTCGPU/releases/tag/v0.21.3-beta" target="_blank" rel="noreferrer" className="cta-secondary">
-              Download Beta Wallet v0.21.3
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="footer">
-        <div className="footer-content">
-          <p>More tools, guides, and initiatives are coming soon.</p>
-          <p className="footer-credit">BitcoinGold.Services — Built by the community, for the community</p>
-        </div>
-      </footer>
-    </div>
-  )
+    const id = setTimeout(() => setDebounced(value), delay);
+    return () => clearTimeout(id);
+  }, [value, delay]);
+  return debounced;
 }
 
-export default App
+function parseHtmlResults(htmlText, query) {
+  try {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(htmlText, "text/html");
+
+    // Try to extract common result structures
+    const results = [];
+
+    // 1) Look for article elements or .result/.search-result lists
+    const candidateSelectors = [
+      "article",
+      ".result",
+      ".search-result",
+      "li",
+      "div.result",
+      "div.search-result",
+    ];
+
+    for (const sel of candidateSelectors) {
+      const items = Array.from(doc.querySelectorAll(sel));
+      if (items && items.length) {
+        for (const item of items) {
+          const a = item.querySelector("a[href]") || item.querySelector("a");
+          const title = a ? (a.textContent || a.getAttribute("title") || a.href) : (item.querySelector("h1, h2, h3")?.textContent || item.textContent);
+          const url = a ? a.href : undefined;
+          const snippetEl = item.querySelector("p, .snippet, .summary");
+          const snippet = snippetEl ? snippetEl.textContent.trim() : (item.textContent || "");
+          if (title || url) {
+            results.push({ title: (title || url || "(no title)").trim(), url, snippet: snippet.trim() });
+          }
+        }
+        if (results.length) break;
+      }
+    }
+
+    // 2) Fallback: collect top anchors
+    if (!results.length) {
+      const anchors = Array.from(doc.querySelectorAll("a[href]"));
+      for (const a of anchors.slice(0, 20)) {
+        const title = a.textContent.trim() || a.getAttribute("title") || a.href;
+        results.push({ title, url: a.href, snippet: "" });
+      }
+    }
+
+    // Optionally trim and dedupe
+    const seen = new Set();
+    const deduped = results
+      .map(r => ({ title: r.title, url: r.url, snippet: r.snippet }))
+      .filter(r => {
+        const key = (r.url || r.title).toString();
+        if (seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      });
+
+    return deduped;
+  } catch (err) {
+    console.error("parseHtmlResults error:", err);
+    return [];
+  }
+}
+
+function normalizeJsonResults(payload) {
+  // Attempt to handle a few common JSON shapes.
+  if (!payload) return [];
+  if (Array.isArray(payload)) {
+    // Assume array of items { title, url, snippet } or strings
+    return payload.map((it) => {
+      if (typeof it === "string") return { title: it, url: undefined, snippet: "" };
+      return {
+        title: it.title || it.name || it.heading || JSON.stringify(it),
+        url: it.url || it.link || it.href,
+        snippet: it.snippet || it.summary || it.description || "",
+      };
+    });
+  }
+
+  if (payload.results && Array.isArray(payload.results)) {
+    return normalizeJsonResults(payload.results);
+  }
+
+  if (payload.items && Array.isArray(payload.items)) {
+    return normalizeJsonResults(payload.items);
+  }
+
+  // If payload is an object representing a single result
+  if (payload.title || payload.name) {
+    return [
+      {
+        title: payload.title || payload.name,
+        url: payload.url || payload.link || payload.href,
+        snippet: payload.snippet || payload.summary || "",
+      },
+    ];
+  }
+
+  // Unknown structure: convert top-level keys to a single result
+  return [
+    {
+      title: JSON.stringify(payload).slice(0, 200),
+      url: undefined,
+      snippet: "",
+    },
+  ];
+}
+
+export default function App() {
+  const [query, setQuery] = useState("");
+  const debouncedQuery = useDebouncedValue(query, 250);
+
+  const [results, setResults] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [lastRequest, setLastRequest] = useState(null);
+  const abortRef = useRef(null);
+
+  useEffect(() => {
+    // Auto-search when debouncedQuery changes and is non-empty
+    if (!debouncedQuery) return;
+    doSearch(debouncedQuery);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [debouncedQuery]);
+
+  async function doSearch(q) {
+    // Cancel previous
+    if (abortRef.current) {
+      abortRef.current.abort();
+    }
+    const controller = new AbortController();
+    abortRef.current = controller;
+
+    setLoading(true);
+    setError(null);
+    setLastRequest(q);
+
+    try {
+      const url = "/api/btg-search?q=" + encodeURIComponent(q);
+      const resp = await fetch(url, { signal: controller.signal, headers: { Accept: "*/*" } });
+
+      if (!resp.ok) throw new Error(`Server returned ${resp.status}`);
+
+      const contentType = resp.headers.get("content-type") || "";
+
+      let parsed = [];
+
+      if (contentType.includes("application/json")) {
+        const json = await resp.json();
+        parsed = normalizeJsonResults(json);
+      } else {
+        // Try to parse JSON first in case server mislabels content-type
+        try {
+          const json = await resp.clone().json();
+          parsed = normalizeJsonResults(json);
+        } catch (e) {
+          // Not JSON: treat as HTML/text
+          const text = await resp.text();
+          parsed = parseHtmlResults(text, q);
+        }
+      }
+
+      setResults(parsed);
+    } catch (err) {
+      if (err.name === "AbortError") return;
+      console.error(err);
+      setError(err.message || "Unknown error");
+      setResults([]);
+    } finally {
+      setLoading(false);
+      abortRef.current = null;
+    }
+  }
+
+  function onSubmit(e) {
+    if (e) e.preventDefault();
+    if (!query) return;
+    doSearch(query);
+  }
+
+  return (
+    <div style={styles.container}>
+      <header style={styles.header}>
+        <h1 style={{ margin: 0 }}>BTG Search</h1>
+        <p style={{ marginTop: 6, color: "#666" }}>Search via your proxy endpoint (/api/btg-search)</p>
+      </header>
+
+      <form onSubmit={onSubmit} style={styles.form} role="search" aria-label="BTG search form">
+        <input
+          aria-label="Search query"
+          placeholder="Search Bitcoin Gold..."
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          style={styles.input}
+        />
+        <button type="submit" style={styles.button} disabled={loading || !query}>
+          {loading ? "Searching…" : "Search"}
+        </button>
+      </form>
+
+      <div style={styles.metaRow}>
+        {lastRequest && <div>Last query: <strong>{lastRequest}</strong></div>}
+        {error && <div style={styles.error}>Error: {error}</div>}
+      </div>
+
+      <main style={styles.results}>
+        {loading && !results.length && <div style={styles.center}>Loading results…</div>}
+
+        {!loading && !results.length && lastRequest && !error && (
+          <div style={styles.center}>No results found for "{lastRequest}".</div>
+        )}
+
+        {!results.length && !lastRequest && (
+          <div style={styles.center}>Type a query to search Bitcoin Gold resources.</div>
+        )}
+
+        {results.length > 0 && (
+          <ul style={styles.list} aria-live="polite">
+            {results.map((r, idx) => (
+              <li key={idx} style={styles.item}>
+                <a href={r.url || "#"} target="_blank" rel="noopener noreferrer" style={styles.title}>
+                  {r.title}
+                </a>
+                {r.url && <div style={styles.url}>{r.url}</div>}
+                {r.snippet && <div style={styles.snippet}>{r.snippet}</div>}
+              </li>
+            ))}
+          </ul>
+        )}
+      </main>
+
+      <footer style={styles.footer}>
+        <small>Results are proxied through /api/btg-search on this host.</small>
+      </footer>
+    </div>
+  );
+}
+
+const styles = {
+  container: {
+    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial",
+    maxWidth: 900,
+    margin: "24px auto",
+    padding: 20,
+  },
+  header: {
+    marginBottom: 16,
+  },
+  form: {
+    display: "flex",
+    gap: 8,
+    marginBottom: 12,
+  },
+  input: {
+    flex: 1,
+    padding: "10px 12px",
+    fontSize: 16,
+    border: "1px solid #ccc",
+    borderRadius: 6,
+  },
+  button: {
+    padding: "10px 14px",
+    fontSize: 16,
+    borderRadius: 6,
+    border: "1px solid #1976d2",
+    background: "#1976d2",
+    color: "#fff",
+    cursor: "pointer",
+  },
+  metaRow: {
+    display: "flex",
+    justifyContent: "space-between",
+    marginBottom: 12,
+    alignItems: "center",
+  },
+  error: {
+    color: "#b00020",
+  },
+  results: {
+    minHeight: 120,
+  },
+  center: {
+    color: "#666",
+    padding: 20,
+  },
+  list: {
+    listStyle: "none",
+    padding: 0,
+    margin: 0,
+    display: "grid",
+    gap: 12,
+  },
+  item: {
+    padding: 12,
+    border: "1px solid #eee",
+    borderRadius: 8,
+    background: "#fff",
+  },
+  title: {
+    fontSize: 16,
+    color: "#0b69ff",
+    textDecoration: "none",
+    fontWeight: 600,
+  },
+  url: {
+    fontSize: 12,
+    color: "#007700",
+    marginTop: 6,
+  },
+  snippet: {
+    marginTop: 8,
+    color: "#333",
+  },
+  footer: {
+    marginTop: 26,
+    color: "#888",
+  },
+};
